@@ -13,21 +13,57 @@ Somnia es una aplicación móvil que te permite:
 
 ## 🚀 Instalación y Uso
 
-### Opción 1: Clonar desde GitHub (Recomendado para Desarrollo)
+### 📥 Clonar en Otro Ordenador (Guía Completa)
+
+**Requisitos previos:**
+- Node.js v18+ 
+- pnpm (`npm install -g pnpm`)
+- Docker Desktop
+- Git
 
 ```bash
-# Clonar el repositorio
+# 1. Clonar el repositorio
 git clone https://github.com/Jairogelpi/somnia.git
 cd somnia
 
-# Instalar dependencias
+# 2. Instalar dependencias del monorepo
 pnpm install
 
-# Levantar backend con Docker (Fase 2)
+# 3. Levantar backend con Docker (Fase 2)
 docker compose up -d --build
 
-# Ejecutar la app móvil
+# 4. Verificar que el backend esté funcionando
+curl http://localhost:8000/health
+
+# 5. Ejecutar la app móvil
 pnpm -F app-mobile dev
+```
+
+**URLs de Acceso:**
+- 📱 **App Móvil**: http://localhost:8081
+- 🔗 **API Backend**: http://localhost:8000  
+- 📦 **MinIO Console**: http://localhost:9001 (usuario: `Gusano2001@`, contraseña: `Gusano2001@`)
+
+### 🐳 Comandos Docker Útiles
+
+```bash
+# Ver estado de los servicios
+docker compose ps
+
+# Ver logs del backend
+docker compose logs api
+
+# Ver logs de MinIO
+docker compose logs minio
+
+# Parar servicios
+docker compose down
+
+# Reiniciar servicios
+docker compose restart
+
+# Reconstruir si hay cambios
+docker compose up -d --build
 ```
 
 ### 🐳 Backend con Docker (Fase 2)
@@ -431,6 +467,42 @@ pnpm -F app-mobile dev --port 8082
 3. **Commit** tus cambios (`git commit -m 'feat: añadir nueva funcionalidad'`)
 4. **Push** a la rama (`git push origin feature/nueva-funcionalidad`)
 5. **Abre** un Pull Request
+
+## 🔧 Guía Rápida para Nuevo Ordenador
+
+### ⚡ Instalación Express (5 minutos)
+
+```bash
+# 1. Clonar
+git clone https://github.com/Jairogelpi/somnia.git
+cd somnia
+
+# 2. Instalar dependencias
+pnpm install
+
+# 3. Levantar backend
+docker compose up -d --build
+
+# 4. Iniciar app
+pnpm -F app-mobile dev
+```
+
+### 🚨 Problemas Comunes
+
+| Error | Solución |
+|-------|----------|
+| `pnpm no encontrado` | `npm install -g pnpm` |
+| `Docker no encontrado` | Instalar Docker Desktop |
+| `Puerto ocupado` | `pnpm -F app-mobile dev --port 8082` |
+| `Backend no responde` | `docker compose restart` |
+| `Metro no inicia` | `pnpm -F app-mobile start --clear` |
+
+### 📱 Probar la App
+
+1. **Web**: http://localhost:8081
+2. **Móvil**: Instalar Expo Go y escanear QR
+3. **Backend**: http://localhost:8000/health
+4. **MinIO**: http://localhost:9001
 
 ## 📄 Licencia
 
