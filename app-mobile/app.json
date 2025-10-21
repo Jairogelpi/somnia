@@ -1,0 +1,35 @@
+{
+  "expo": {
+    "name": "Somnia",
+    "slug": "somnia",
+    "scheme": "somnia",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": { 
+      "image": "./assets/splash-icon.png", 
+      "resizeMode": "contain", 
+      "backgroundColor": "#0B0B10" 
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.tuempresa.somnia",
+      "buildNumber": "1",
+      "infoPlist": {
+        "NSMicrophoneUsageDescription": "Usamos el micrófono para que puedas grabar tus sueños."
+      }
+    },
+    "android": {
+      "package": "com.tuempresa.somnia",
+      "versionCode": 1,
+      "permissions": ["RECORD_AUDIO"],
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#0B0B10"
+      }
+    },
+    "plugins": ["expo-av"],
+    "updates": { "fallbackToCacheTimeout": 0 },
+    "privacy": "public"
+  }
+}
